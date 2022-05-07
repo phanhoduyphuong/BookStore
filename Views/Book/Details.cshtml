@@ -1,0 +1,74 @@
+﻿@model BookStore.Models.SACH
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_SACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAC_GIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHA_XB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHA_XB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIA_TIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIA_TIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SO_LUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_LUONG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINH_ANH)
+            <img src="@Url.Content("~/Photos/" + Model.HINH_ANH)" alt="" height="200" width="200"/>
+
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.THE_LOAI_SACH.TEN_THE_LOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THE_LOAI_SACH.TEN_THE_LOAI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

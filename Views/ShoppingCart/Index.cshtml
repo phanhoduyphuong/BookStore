@@ -1,0 +1,25 @@
+﻿@using BookStore.Models;
+@{
+    ViewBag.Title = "Index";
+    var Cart = Session["ShoppingCart"] as ShoppingCart;
+}
+
+<h2>Index</h2>
+<table class="table table-bordered">
+    @if (Cart != null)
+    {
+        foreach (var b in Cart.BookList)
+        {
+            <tr>
+                <td>@b.TEN_SACH</td>
+                <td>@b.GIA_TIEN</td>
+                <td>@Html.ActionLink("Xóa", "Delete", new { id = b.ID })</td>
+            </tr>
+
+        }
+        <h3>Tổng tiền: @Cart.GetTotal()</h3>
+        @Html.ActionLink("Xóa tất cả", "DeleteAll", null, new { @class = "btn btn-danger" })
+    }
+</table>
+
+

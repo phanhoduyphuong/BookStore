@@ -1,0 +1,72 @@
+﻿@model BookStore.Models.SACH
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_SACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_SACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAC_GIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAC_GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHA_XB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHA_XB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIA_TIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIA_TIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SO_LUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_LUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THE_LOAI_SACH.TEN_THE_LOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THE_LOAI_SACH.TEN_THE_LOAI)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

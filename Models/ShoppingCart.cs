@@ -7,7 +7,7 @@ namespace BookStore.Models
 {
     public class ShoppingCart
     {
-        public List<SACH> BookList { get; set; }        
+        public List<SACH> BookList;    
         public ShoppingCart()
         {            
             BookList = new List<SACH>();
@@ -27,10 +27,27 @@ namespace BookStore.Models
                 return false;
             else
             {
+                s.SO_LUONG = 1;
                 BookList.Add(s);
                 return true;
             }
                 
+        }
+        public bool Delete(SACH s)
+        {
+            if (s == null)
+                return false;
+            else
+            {
+                SACH book = BookList.Find(x => x.ID == s.ID) as SACH;                
+                return BookList.Remove(book);
+            }
+        }
+        public bool Update(int id, int soluong)
+        {            
+                SACH book = BookList.Find(x => x.ID == id) as SACH;
+                book.SO_LUONG = soluong;
+                return true;            
         }
     }
 }

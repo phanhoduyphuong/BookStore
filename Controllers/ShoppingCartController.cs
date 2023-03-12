@@ -35,5 +35,26 @@ namespace BookStore.Controllers
             Session["ShoppingCart"] = null;
             return View("Index");
         }
+        public ActionResult Delete(int id)
+        {
+            SACH s = db.SACH.Find(id);
+            var Cart = Session["ShoppingCart"] as ShoppingCart;
+            if(s != null) 
+            {
+                Cart.Delete(s);
+                Session["ShoppingCart"] = Cart;
+            }                
+            return View("Index");
+        }
+        [HttpPost]
+        public ActionResult Update()
+        {
+            var Cart = Session["ShoppingCart"] as ShoppingCart;                
+            int soluong = int.Parse(Request.Form["soluong"]);
+            int id = int.Parse(Request.Form["id"]);
+            Cart.Update(id,soluong);
+            Session["ShoppingCart"] = Cart;
+            return View("Index");
+        }
     }
 }

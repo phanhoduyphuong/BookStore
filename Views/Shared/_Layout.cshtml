@@ -33,6 +33,7 @@
         @RenderBody()
         <hr />
         <footer>
+            <p>Sách giá thấp nhất: @Html.Action("MinPrice","LinQ")</p>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

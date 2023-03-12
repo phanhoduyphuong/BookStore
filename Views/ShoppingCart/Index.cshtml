@@ -10,16 +10,25 @@
     {
         foreach (var b in Cart.BookList)
         {
-            <tr>
-                <td>@b.TEN_SACH</td>
-                <td>@b.GIA_TIEN</td>
-                <td>@Html.ActionLink("Xóa", "Delete", new { id = b.ID })</td>
-            </tr>
+    <tr>
+        <td>@b.TEN_SACH</td>
+        <td>@b.GIA_TIEN</td>
+        <td>@b.SO_LUONG</td>
+        <td>
+        @{Html.BeginForm("Update","ShoppingCart");}
+            <input type="text" name="soluong" /> 
+            <input type="hidden" value="@b.ID" name="id"/>
+            <input type="submit" value="Cập nhật SL" class="btn btn-success"/>
+        @{ Html.EndForm();}
+        </td>
+
+        <td>@Html.ActionLink("Xóa", "Delete", new { id = b.ID })</td>
+    </tr>
 
         }
         <h3>Tổng tiền: @Cart.GetTotal()</h3>
         @Html.ActionLink("Xóa tất cả", "DeleteAll", null, new { @class = "btn btn-danger" })
     }
 </table>
-
+@Html.ActionLink("Đặt hàng", "Order", null, new { @class = "btn btn-primary" })
 

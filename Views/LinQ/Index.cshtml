@@ -1,0 +1,76 @@
+﻿@model IEnumerable<BookStore.Models.SACH>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Search", "LinQ", FormMethod.Post))
+{
+
+    <input type="text" name="search" class="form-control" value="Tên sách"/>
+    <input type="text" name="price" class="form-control" value="0"/>
+    <input type="submit" value="Tìm kiếm" />
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_SACH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAC_GIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHA_XB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIA_TIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SO_LUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HINH_ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THE_LOAI_SACH.TEN_THE_LOAI)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_SACH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TAC_GIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHA_XB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIA_TIEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SO_LUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HINH_ANH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THE_LOAI_SACH.TEN_THE_LOAI)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
